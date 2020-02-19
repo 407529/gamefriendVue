@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>Game profile</h1>
+        <h1>Friends</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name: "GameProfile"
+        name: "Friends"
     }
 </script>
 

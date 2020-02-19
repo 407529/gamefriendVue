@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <Navigation/>
-    <Profile/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/gamefriend">Game friend</router-link> |
+      <router-link to="/friends">Friends</router-link> |
+      <router-link to="/profile">Profile</router-link> |
+      <router-link to="/login">Login</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-<script>
-import Navigation from "@/components/layout/Navigation";
-import Profile from './components/Profile.vue';
-
-export default {
-  name: 'App',
-  components: {
-    Navigation,
-    Profile
-  },
-}
-</script>
 
 <style>
-  body
-  {
-    margin: 0;
-    padding: 0;
-  }
-  #app {
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a{
+  font-weight: bold;
+  color: #2c3e50;
+}
 </style>

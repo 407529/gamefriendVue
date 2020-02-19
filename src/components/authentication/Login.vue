@@ -6,6 +6,7 @@
             first name: <input type="text" name="firstName">
             last name: <input type="text" name="lastName">
         </form>
+        <router-link to="/register">Register here</router-link>
     </div>
 </template>
 
