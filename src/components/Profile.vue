@@ -11,7 +11,7 @@
 export default {
   name: 'Profile',
   data() {
-    return {user: {firstName: "Bert", userName: "Bert@gmail.com"}}
+    return {user: {firstName: "Cas", userName: "Bert@gmail.com"}}
   }
 }
 </script>
