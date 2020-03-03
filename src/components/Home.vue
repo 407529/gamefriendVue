@@ -1,6 +1,7 @@
 <template>
-  <div class="home">
-    <img src="../assets/logo.png" height="200" width="200"/>
+  <div>
+    <h1>Introduction</h1>
+    <p>This app is used for finding new people to play games with.</p>
   </div>
 </template>
 

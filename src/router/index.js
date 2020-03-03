@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../components/Home.vue'
-
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -14,9 +12,7 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    // route level code-splitting
-    // which isd. lazy-loaded when the route is visited
-    component: () => import(/* webpackChunkName: "about" */ '@/components/Profile')
+    component: () => import('@/components/profile/Profile')
   },
   {
     path: '/login',
@@ -31,12 +27,12 @@ const routes = [
   {
     path: '/friends',
     name: 'Friends',
-    component:() => import('@/components/Friends')
+    component:() => import('@/components/friend_list/Friends')
   },
   {
-    path: '/gamefriend',
+    path: '/game-friend',
     name: 'GameFriend',
-    component: () => import('@/components/GameFriend')
+    component: () => import('@/components/suggested_friends/SuggestedFriends')
   }
 ];
 

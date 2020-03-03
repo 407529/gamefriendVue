@@ -1,12 +1,13 @@
 <template>
     <div>
-        <h1>Game friend</h1>
+
     </div>
 </template>
 
 <script>
     export default {
-        name: "GameFriend"
+        name: "Games",
+        props: ["games"]
     }
 </script>
 
