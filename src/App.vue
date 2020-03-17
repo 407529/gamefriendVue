@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link to="/games">Games</router-link> |
       <router-link to="/game-friend">Game friend</router-link> |
       <router-link to="/friends">Friends</router-link> |
       <router-link to="/profile">Profile</router-link> |
@@ -16,11 +17,11 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --main-color1:#e3170a;
-  --main-color2:#e16036;
-  --main-color3:#d6a99a;
-  --accentuator-color1:#d6cbc1;
-  --accentuator-color2: #cdd6d0;
+  --darkestBlue:#0e2e47;
+  --lighterBlue:#1e3888;
+  --blue:#26408b;
+  --whiteBlue:#1b4079;
+  --white: #ffffff;
   text-align: center;
   color: #2c3e50;
 }

@@ -33,6 +33,11 @@ const routes = [
     path: '/game-friend',
     name: 'GameFriend',
     component: () => import('@/components/suggested_friends/SuggestedFriends')
+  },
+  {
+    path: '/games',
+    name: 'Games',
+    component: () => import('@/game/Games')
   }
 ];
 

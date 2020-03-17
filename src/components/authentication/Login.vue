@@ -31,11 +31,13 @@
     .loginPage
     {
         height: 100%;
-        width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-        background-color: var(--main-color1);
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: var(--darkestBlue);
         padding-bottom: 22.5%;
+        border-radius: 3%;
+        box-shadow: 7px 10px var(--whiteBlue);
     }
     .login
     {
@@ -45,31 +47,30 @@
         display: inline-block;
         border-radius: 3%;
         padding: 2%;
-        background-color: white;
     }
     input{
         display: block;
         margin: auto;
         border-radius: 5px;
-        border-color: var(--accentuator-color2);
+        border-color: var(--white);
     }
     .submitButton
     {
-        background: var(--main-color2);
+        background: var(--white);
         border-radius: 25px;
         border: none;
         outline: none;
         margin-top: 0.2%;
         font-size: 18px;
-        color: var(--accentuator-color1);
+        color: var(--darkestBlue);
     }
     label{
-        color: var(--main-color3);
+        color: var(--white);
         margin: auto;
     }
     .registerLink
     {
-        color: var(--main-color1);
+        color: var(--blue);
         text-decoration: none;
     }
 </style>
