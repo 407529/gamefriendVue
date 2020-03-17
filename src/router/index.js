@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/games',
     name: 'Games',
-    component: () => import('@/game/Games')
+    component: () => import('@/components/game/Games')
   }
 ];
 

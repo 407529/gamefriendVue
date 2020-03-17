@@ -9,7 +9,7 @@
 
 <script>
     import axios from 'axios';
-    import Game from "@/game/Game";
+    import Game from "@/components/game/Game";
     export default {
         name: "Games",
         components: {Game},
