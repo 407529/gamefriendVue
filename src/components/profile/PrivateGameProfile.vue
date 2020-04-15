@@ -1,7 +1,7 @@
 <template>
         <div>
             <p>{{game.name}}</p>
-            <p>{{game.category}}</p>
+            <p>{{game.gameCategory}}</p>
         </div>
 </template>
 

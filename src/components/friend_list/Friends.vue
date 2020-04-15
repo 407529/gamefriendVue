@@ -1,5 +1,6 @@
 <template>
     <div class="friends">
+        <h2>Friends</h2>
         <div v-bind:key="friend.id"  v-for="friend in friends">
             <Friend v-bind:friend="friend"/>
         </div>
@@ -7,12 +8,17 @@
 </template>
 
 <script>
+    import GamerService from "../../service/gamer-service"
     import Friend from "@/components/friend_list/Friend";
     export default {
         name: "Friends",
         data()
         {
-            return{friends:[{id:1,name:"Gert"},{id:2,name:"B"}]}
+            return{friends:[]}
+        },
+        mounted()
+        {
+            GamerService.getGamerFriendsByGamerId(this.$store.state.authentication.user.id).then(friends=> this.friends = friends).error(err => console.log(err));
         },
         components:{
             Friend

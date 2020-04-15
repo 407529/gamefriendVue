@@ -1,35 +1,41 @@
 <template>
-  <div class="profile">
-    <h1>profile</h1>
-    <p>name: {{user.firstName}}</p>
-    <p>username: {{user.userName}}</p>
-    <h2>games</h2>
-    <div v-bind:key="game.id"  v-for="game in user.gamesPlayed">
-      <GameProfile v-bind:game="game"/>
+    <div>
+        <img class="gamerTag" v-bind:src="gamer.pictureUrl">
+        <p>{{gamer.username}}</p>
+        <p>{{gamer.description}}</p>
+        <h2>Games</h2>
+        <div v-bind:key="game.id"  v-for="game in gamer.games">
+            <PrivateGameProfile v-bind:game="game"/>
+        </div>
+        <h2>Languages</h2>
+        <LanguageProfile v-bind:languages="gamer.languages"></LanguageProfile>
     </div>
-  </div>
 </template>
 
 <script>
-import GameProfile from "@/components/profile/GameProfile";
-
-export default {
-  name: 'Profile',
-  data() {
-    return {user: {firstName: "Bert", userName: "Bert@gmail.com",gamesPlayed:[{id:1,name:"league of legends",category:"MMO"},{gameId:1,name:"league of legends",category:"MMO"}]}}
-  },
-  mounted()
-  {
-    console.log("loaded profile");
-  },
-  components:
-          {
-            GameProfile
-          }
-}
+    import GamerService from '../../service/gamer-service'
+    import LanguageProfile from "@/components/profile/LanguagesProfile";
+    import PrivateGameProfile from "@/components/profile/PrivateGameProfile";
+    export default {
+        name: "Profile",
+        components: {
+            LanguageProfile,
+            PrivateGameProfile
+        },
+        data()
+        {
+           return {gamer:{}}
+        },
+        mounted()
+        {
+            GamerService.getGamerById(this.$route.params.id).then(gamer=> this.gamer = gamer)
+        }
+    }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    .gamerTag
+    {
+        max-width: 400px;
+    }
 </style>

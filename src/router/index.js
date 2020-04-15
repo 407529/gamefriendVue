@@ -11,8 +11,8 @@ const routes = [
   },
   {
     path: '/profile',
-    name: 'Profile',
-    component: () => import('@/components/profile/Profile')
+    name: 'PrivateProfile',
+    component: () => import('@/components/profile/PrivateProfile')
   },
   {
     path: '/login',
@@ -38,6 +38,16 @@ const routes = [
     path: '/games',
     name: 'Games',
     component: () => import('@/components/game/Games')
+  },
+  {
+    path: '/profiles/:id',
+    name: 'profile',
+    component: () => import('@/components/profile/Profile')
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component:() => import('@/components/errors/not_found_route')
   }
 ];
 

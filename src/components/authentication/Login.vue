@@ -1,20 +1,32 @@
 <template>
     <div class="loginPage">
         <div class="login">
-            <form @submit="login">
-                <label>email: </label><input type="text" v-model="email" name="userName">
-                <label>password: </label><input type="password" v-model="password" name="password">
-                <button class="submitButton" type="submit">login</button>
-            </form>
+            <ValidationObserver ref="loginValidation">
+                <form @submit="handleLogin">
+                    <ValidationProvider name="E-mail" rules="required|email" v-slot="{errors}">
+                        <label>email: </label><input type="text" v-model="user.username" name="userName">
+                        <span>{{ errors[0] }}</span>
+                    </ValidationProvider>
+                    <ValidationProvider name="Password" rules="required|alpha" v-slot="{errors}">
+                        <label>password: </label><input type="password" v-model="user.password" name="password">
+                        <span>{{errors[0]}}</span>
+                    </ValidationProvider>
+                    <button class="submitButton" type="submit">login</button>
+                </form>
+            </ValidationObserver>
             <router-link class="registerLink" to="/register">Or register here</router-link>
         </div>
     </div>
 </template>
 
 <script>
+    import { ValidationObserver } from 'vee-validate';
     import User from "@/components/models/user";
     export default {
         name: "Login",
+        components:{
+            ValidationObserver
+        },
         data() {
             return {
                 user: new User('', ''),
@@ -24,7 +36,7 @@
         },
         computed: {
             loggedIn() {
-                return this.$store.state.auth.status.loggedIn;
+                return this.$store.state.authentication.status.loggedIn;
             }
         },
         created() {
@@ -35,7 +47,7 @@
         methods: {
             handleLogin() {
                 this.loading = true;
-                this.$validator.validateAll().then(isValid => {
+                this.$refs.loginValidation.validate().then(isValid => {
                     if (!isValid) {
                         this.loading = false;
                         return;

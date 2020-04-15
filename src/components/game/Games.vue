@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import Game from "@/components/game/Game";
+    import GameService from "../../service/game-service"
     export default {
         name: "Games",
         components: {Game},
@@ -20,7 +20,7 @@
             }
         },
         mounted() {
-            axios.get('http://localhost:9000/gamefriend/api/games/all').then(res => this.games = res.data).catch(err => console.log(err));
+            GameService.getAllGames().then(games => this.games = games).catch(err => console.log(err));
         }
     }
 </script>
