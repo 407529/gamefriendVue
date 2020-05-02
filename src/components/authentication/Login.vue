@@ -2,17 +2,18 @@
     <div class="loginPage">
         <div class="login">
             <ValidationObserver ref="loginValidation">
-                <form @submit="handleLogin">
+                <form @submit.prevent="handleLogin">
                     <ValidationProvider name="E-mail" rules="required|email" v-slot="{errors}">
-                        <label>email: </label><input type="text" v-model="user.username" name="userName">
+                        <label>email: </label><input id="userName" type="text" v-model="user.username" name="userName">
                         <span>{{ errors[0] }}</span>
                     </ValidationProvider>
-                    <ValidationProvider name="Password" rules="required|alpha" v-slot="{errors}">
-                        <label>password: </label><input type="password" v-model="user.password" name="password">
+                    <ValidationProvider name="Password" rules="required" v-slot="{errors}">
+                        <label>password: </label><input id="password" type="password" v-model="user.password" name="password">
                         <span>{{errors[0]}}</span>
                     </ValidationProvider>
                     <button class="submitButton" type="submit">login</button>
                 </form>
+                <div v-if="message">{{message}}}</div>
             </ValidationObserver>
             <router-link class="registerLink" to="/register">Or register here</router-link>
         </div>
@@ -20,8 +21,13 @@
 </template>
 
 <script>
+    import {required,email} from 'vee-validate/dist/rules'
     import { ValidationObserver } from 'vee-validate';
+    import {extend} from 'vee-validate'
     import User from "@/components/models/user";
+    //vee-validate rules
+    extend('email',email);
+    extend('required',required)
     export default {
         name: "Login",
         components:{
@@ -46,15 +52,18 @@
         },
         methods: {
             handleLogin() {
+                console.log("login");
                 this.loading = true;
                 this.$refs.loginValidation.validate().then(isValid => {
                     if (!isValid) {
+                        console.log('no login');
                         this.loading = false;
                         return;
                     }
 
                     if (this.user.username && this.user.password) {
-                        this.$store.dispatch('auth/login', this.user).then(
+                        console.log('authentication');
+                        this.$store.dispatch('authentication/login', this.user).then(
                             () => {
                                 this.$router.push('/profile');
                             },

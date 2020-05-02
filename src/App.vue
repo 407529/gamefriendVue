@@ -6,12 +6,34 @@
       <router-link to="/game-friend">Game friend</router-link> |
       <router-link to="/friends">Friends</router-link> |
       <router-link to="/profile">Profile</router-link> |
-      <router-link to="/login">Login</router-link>
+      <router-link v-if="!currentUser" to="/login">Login</router-link>
+      <a v-if="currentUser" @click.prevent="logout">Logout</a>
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+  export default {
+    computed:
+    {
+      currentUser()
+      {
+        console.log(this.$store.state.authentication.user);
+        return this.$store.state.authentication.user;
+      }
+    },
+    methods:
+    {
+      logout()
+      {
+        console.log('logout');
+        this.$store.dispatch('authentication/logout');
+        this.$router.push('/login')
+      }
+    }
+  }
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
