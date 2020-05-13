@@ -1,7 +1,7 @@
-import SuggestedFriend from "@/components/suggested_friends/SuggestedFriend";
+import SuggestedFriend from "../../src/components/suggested_friends/SuggestedFriend";
 import { mount,createLocalVue  } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import routes from "@/router/routes";
+import routes from "../../src/router/routes";
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
@@ -13,12 +13,9 @@ describe('SuggestedFriend.vue',()=>{
   it('should show users name',()=>{
         expect(suggestedFriend.text()).toContain("Bert");
       }
-  )
+  ),
   it('should display description',()=>{
       expect(suggestedFriend.text()).toContain("I like mmo's");
   })
-    it('link on profile works',()=>{
-
-    })
 });
 

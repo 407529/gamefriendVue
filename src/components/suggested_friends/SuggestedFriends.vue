@@ -1,10 +1,10 @@
 <template>
     <div class="suggestedFriends">
         <form @submit.prevent="searchByGameName">
-            <input type="text" name="game-name" v-model="gameName">
+            <input class="gameName" type="text" name="game-name" v-model="gameName">
             <button class="submitButton" type="submit">search</button>
         </form>
-        <select @change="searchByGameCategory($event)">
+        <select @change="searchByGameCategory($event)" id="gameCategoryDd">
             <option v-for="(gameCategory, index) in  gameCategories" :value="gameCategory" :key="index">{{gameCategory.toLowerCase()}}</option>
         </select>
         <div v-bind:key="suggestedFriend.id"  v-for="suggestedFriend in suggestedFriends">
@@ -36,6 +36,7 @@
             },
             searchByGameCategory(event)
             {
+                this.gameCategory = event.target.options[event.target.options.selectedIndex].text;
                 GamerService.getGamerByGameCategory(event.target.options[event.target.options.selectedIndex].text).then(suggestedFriends => this.suggestedFriends = suggestedFriends).catch(err => console.log(err));
             }
         }

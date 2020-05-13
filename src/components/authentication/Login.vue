@@ -24,7 +24,7 @@
     import {required,email} from 'vee-validate/dist/rules'
     import { ValidationObserver } from 'vee-validate';
     import {extend} from 'vee-validate'
-    import User from "@/components/models/user";
+    import User from "../models/User";
     //vee-validate rules
     extend('email',email);
     extend('required',required)
