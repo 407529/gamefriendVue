@@ -74,6 +74,7 @@
     "last 2 versions"
   ],
   "jest": {
+    "verbose": true,
     "moduleFileExtensions": [
       "js",
       "json",
@@ -85,6 +86,9 @@
     "transform": {
       ".*\\.(vue)$": "vue-jest"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ],
     "preset": "@vue/cli-plugin-unit-jest"
   }
 }
