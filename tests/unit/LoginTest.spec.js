@@ -23,8 +23,8 @@ const loginComponent = mount(Login,{localVue,store})
 describe('Login.vue',()=>{
     it('Login form request',()=>
     {
-        loginComponent.find('#username').setValue('Bert123');
-        loginComponent.find('#username').setValue('Gert#123');
+        loginComponent.find('#userName').setValue('Bert123');
+        loginComponent.find('#password').setValue('Gert#123');
         loginComponent.find('.submitButton').props().onClick();
     })
 })

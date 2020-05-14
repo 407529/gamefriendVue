@@ -79,6 +79,9 @@
       "json",
       "vue"
     ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ],
     "transform": {
       ".*\\.(vue)$": "vue-jest"
     },

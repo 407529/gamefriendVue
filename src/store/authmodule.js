@@ -1,4 +1,4 @@
-import AuthService from "@/service/auth-service";
+import AuthService from "@/service/auth-service.js";
 
 const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
