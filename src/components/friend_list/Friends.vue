@@ -9,7 +9,7 @@
 
 <script>
     import GamerService from "../../service/gamer-service"
-    import Friend from "@/components/friend_list/Friend";
+    import Friend from "./Friend";
     export default {
         name: "Friends",
         data()

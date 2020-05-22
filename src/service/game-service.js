@@ -1,11 +1,12 @@
 import axios from 'axios';
+import httpAdapter from 'axios/lib/adapters/http'
 
 const API_URL = 'http://localhost:9000/gamefriend/api/games/';
 
-class GameService {
+export class GameService {
     getAllGames()
     {
-        return axios.get(API_URL+'all').then(response => {
+        return axios.get(API_URL+'all',{adapter: httpAdapter}).then(response => {
             return response.data;
         });
     }

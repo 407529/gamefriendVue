@@ -16,7 +16,7 @@
 <script>
     import GamerService from "../../service/gamer-service"
     import GameCategoryService from "../../service/gamecategory-service"
-    import SuggestedFriend from "@/components/suggested_friends/SuggestedFriend";
+    import SuggestedFriend from "./SuggestedFriend";
     export default {
         name: "GameFriend",
         components: {SuggestedFriend},

@@ -5,14 +5,14 @@
     <p>username: {{user.userName}}</p>
     <h2>games</h2>
     <div v-bind:key="game.id"  v-for="game in user.gamesPlayed">
-      <GameProfile v-bind:game="game"/>
+      <PrivateGameProfile v-bind:game="game"/>
     </div>
     <LanguageProfile v-bind:languages="user.languages"></LanguageProfile>
   </div>
 </template>
 
 <script>
-import GameProfile from "@/components/profile/PrivateGameProfile";
+import PrivateGameProfile from "./PrivateGameProfile";
 import GamerService from "../../service/gamer-service"
 
 export default {
@@ -26,7 +26,7 @@ export default {
   },
   components:
           {
-            GameProfile
+            PrivateGameProfile
           }
 }
 </script>

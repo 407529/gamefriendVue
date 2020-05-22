@@ -1,5 +1,5 @@
 import axios from 'axios';
-import authHeader from "@/service/auth-header";
+import authHeader from "./auth-header";
 
 const API_URL = 'http://localhost:9000/gamefriend/api/gamers/';
 

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import Game from "@/components/game/Game";
+    import Game from "./Game";
     import GameService from "../../service/game-service"
     export default {
         name: "Games",
@@ -20,7 +20,7 @@
             }
         },
         mounted() {
-            GameService.getAllGames().then(games => this.games = games).catch(err => console.log(err));
+-            GameService.getAllGames().then(games => {this.games = games;console.log(games)}).catch(err => console.log(err));
         }
     }
 </script>

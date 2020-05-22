@@ -8,18 +8,18 @@
             <PrivateGameProfile v-bind:game="game"/>
         </div>
         <h2>Languages</h2>
-        <LanguageProfile v-bind:languages="gamer.languages"></LanguageProfile>
+        <LanguagesProfile v-bind:languages="gamer.languages"></LanguagesProfile>
     </div>
 </template>
 
 <script>
     import GamerService from '../../service/gamer-service'
-    import LanguageProfile from "@/components/profile/LanguagesProfile";
-    import PrivateGameProfile from "@/components/profile/PrivateGameProfile";
+    import LanguagesProfile from "./LanguagesProfile";
+    import PrivateGameProfile from "./PrivateGameProfile";
     export default {
         name: "Profile",
         components: {
-            LanguageProfile,
+            LanguagesProfile,
             PrivateGameProfile
         },
         data()
