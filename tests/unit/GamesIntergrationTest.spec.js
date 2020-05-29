@@ -2,7 +2,6 @@ import Games from "../../src/components/game/Games";
 import {mount} from '@vue/test-utils'
 import GameService from "../../src/service/game-service";
 import httpAdapter from 'axios/lib/adapters/http'
-import flushPromises from 'flush-promises'
 import axios from  'axios';
 
 const gamesVueComponent = mount(Games,{GameService:GameService,httpAdapter,axios});
