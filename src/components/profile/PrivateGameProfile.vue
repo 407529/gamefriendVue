@@ -1,14 +1,15 @@
 <template>
         <div>
-            <p>{{game.name}}</p>
-            <p>{{game.gameCategory}}</p>
+            <p>game: {{gameProfile.game.name}}</p>
+            <p>category: {{gameProfile.game.gameCategory}}</p>
+            <p>username: {{gameProfile.username}}</p>
         </div>
 </template>
 
 <script>
     export default {
         name: "GameProfile",
-        props:["game"]
+        props:["gameProfile"]
     }
 </script>
 

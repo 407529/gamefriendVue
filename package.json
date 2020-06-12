@@ -87,9 +87,6 @@
     "transform": {
       ".*\\.(vue)$": "vue-jest"
     },
-    "transformIgnorePatterns": [
-      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
-    ],
     "preset": "@vue/cli-plugin-unit-jest"
   }
 }

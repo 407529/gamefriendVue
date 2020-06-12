@@ -33,6 +33,18 @@ class GamerService {
             return response.data
         });
     }
+    removeLanguage(userId,languageId)
+    {
+        return axios.put(API_URL+'remove/language/',{gamerId:userId,languageId:languageId},{headers:authHeader()})
+    }
+    removeUser(userId)
+    {
+        return axios.delete(API_URL+userId,{headers:authHeader()})
+    }
+    updateGamer(gamerUpdateRequest)
+    {
+        return axios.put(API_URL+'update',gamerUpdateRequest,{headers:authHeader()})
+    }
 }
 export default new GamerService();
 

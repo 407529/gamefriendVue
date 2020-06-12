@@ -4,10 +4,9 @@
         <p>{{gamer.username}}</p>
         <p>{{gamer.description}}</p>
         <h2>Games</h2>
-        <div v-bind:key="game.id"  v-for="game in gamer.games">
-            <PrivateGameProfile v-bind:game="game"/>
+        <div v-bind:key="gameProfile.id"  v-for="gameProfile in gamer.gameProfiles">
+            <PrivateGameProfile v-bind:gameProfile="gameProfile"/>
         </div>
-        <h2>Languages</h2>
         <LanguagesProfile v-bind:languages="gamer.languages"></LanguagesProfile>
     </div>
 </template>
